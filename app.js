@@ -45,7 +45,7 @@ app.use(function (err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
-mongoose.connect(config.get("db"))
+mongoose.connect("mongodb+srv://saadzaidi169:Wm4Fk7Uq9DCXXzLr@cluster0.hz7az9b.mongodb.net/?retryWrites=true&w=majority")
   .then(() => console.log("Connected to Mongo Successfully....."))
   .catch((error) => console.log(error.message));
 
