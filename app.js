@@ -9,6 +9,12 @@ var usersRouter = require('./routes/api/users');
 var productsRouter = require('./routes/api/products');
 var config = require("config");
 var app = express();
+const cors = require('cors');
+app.use(cors({
+  origin: '*', // Replace with your frontend origin
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  credentials: true,
+}));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -40,7 +46,7 @@ app.use(function (err, req, res, next) {
   res.render('error');
 });
 mongoose.connect(config.get("db"))
-  .then(() => console.log("Connected to Mongo....."))
+  .then(() => console.log("Connected to Mongo Successfully....."))
   .catch((error) => console.log(error.message));
 
 module.exports = app;
