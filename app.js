@@ -1,3 +1,4 @@
+require("dotenv").config();
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
@@ -45,7 +46,7 @@ app.use(function (err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
-mongoose.connect(config.get("db"))
+mongoose.connect(process.env.MONGO_URL)
   .then(() => console.log("Connected to Mongo Successfully....."))
   .catch((error) => console.log(error.message));
 
