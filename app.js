@@ -44,7 +44,7 @@ app.use(function (err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
-mongoose.connect(process.env.MONGO_URL)
+mongoose.connect(process.env.LINK)
   .then(() => console.log("Connected to Mongo Successfully....."))
   .catch((error) => console.log(error.message));
 
